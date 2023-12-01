@@ -11,7 +11,7 @@ double func(double x)
 {
 	return x * x - 4 * x - 10;
 }
-// function to return the absolute value of gien value.
+// function to return the absolute value of given value.
 double retAbsVal(double x)
 {
 	if (x < 0)
@@ -30,11 +30,11 @@ void bisection(double a, double b)
 	if (funcA * funcB < 0)
 	{
 		nextValue = (a + b) / 2;
-		error = retAbsVal(func(nextValue) - funcNextValue);
+		error = retAbsVal(b-a);
 		funcNextValue = func(nextValue);
 		cout << fixed << setprecision(4);
-		cout<<a<<"\t\t"<<b<<"\t\t"<<nextValue<<"\t\t"<<funcA<<"\t\t"<<funcB<<"\t\t"<<error<<endl;
-		if (error <= EPSILON)
+		cout<<a<<"\t\t"<<b<<"\t\t"<<nextValue<<"\t\t"<<funcA<<"\t\t"<<funcB<<"\t\t"<<funcNextValue<<"\t\t"<<error<<endl;
+		if (error<= EPSILON||retAbsVal(funcNextValue)<= EPSILON)
 		{
 			cout << "----------------------------------------------------------------------------------" << endl;
 			cout << "\t\tsolution is:" << nextValue << endl;
@@ -45,10 +45,13 @@ void bisection(double a, double b)
 			b = nextValue;
 			bisection(a, b);
 		}
-		else
+		else if(funcB * funcNextValue < 0)
 		{
 			a = nextValue;
 			bisection(a, b);
+		}else{
+			cout<<"unknown error occurrred!!!!!"<<endl;
+			return;
 		}
 	}
 	else
@@ -62,7 +65,7 @@ int main()
 {
 	double firstValue = -2;	 // Initial first values assumed
 	double secondValue = -1; // Initial second values assumed
-	cout<<"firstValue\t"<<"secondValue\t"<<"nextValue\t"<<"F(a)\t\t"<<"F(B)\t\t"<<"Error\t"<<endl;
+	cout<<"firstValue\t"<<"secondValue\t"<<"nextValue\t"<<"F(a)\t\t"<<"F(B)\t\t"<<"F(C)\t\t"<<"Error\t"<<endl;
 	bisection(firstValue, secondValue);
 	return 0;
 }

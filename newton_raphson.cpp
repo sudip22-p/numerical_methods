@@ -36,10 +36,10 @@ void newtonRaphson(double a)
 	{
 		nextValue = a-(funcA/derA);
 		funcNextValue=func(nextValue);
-		error = retAbsVal(funcNextValue-funcA);
+		error = retAbsVal(a-nextValue);
 		cout << fixed << setprecision(4);
-		cout<<a<<"\t\t"<<nextValue<<"\t\t"<<funcA<<"\t\t"<<derA<<"\t\t"<<error<<endl;
-		if (error <= EPSILON)
+		cout<<a<<"\t\t"<<nextValue<<"\t\t"<<funcA<<"\t\t"<<funcNextValue<<"\t\t\t"<<derA<<"\t\t\t"<<error<<endl;
+		if (error <= EPSILON||retAbsVal(funcNextValue)<=EPSILON)
 		{
 			cout << "----------------------------------------------------------------------------------" << endl;
 			cout << "\t\tsolution is:" << nextValue << endl;
@@ -61,7 +61,7 @@ void newtonRaphson(double a)
 int main()
 {
 	double initialValue = 0;	 // Initial values assumed
-	cout<<"initialValue\t"<<"nextValue\t"<<"F(a)\t\t"<<"F'(A)\t\t"<<"Error\t"<<endl;
+	cout<<"initialValue\t"<<"nextValue\t"<<"F(a)\t\t"<<"F(nextValue)\t\t\t"<<"F'(A)\t\t\t"<<"Error"<<endl;
 	newtonRaphson(initialValue);
 	return 0;
 }
