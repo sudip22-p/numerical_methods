@@ -29,11 +29,11 @@ void falsePosition(double a, double b)
 	funcB = func(b);
 	if (funcA * funcB < 0)
 	{
-		nextValue = a-(funcA*(b-a))/(funcB-funcA);
+		nextValue = a-((funcA*(b-a))/(funcB-funcA));
 		error = retAbsVal(a-b);
 		funcNextValue = func(nextValue);
 		cout << fixed << setprecision(4);
-		cout<<a<<"\t\t"<<b<<"\t\t"<<nextValue<<"\t\t"<<funcA<<"\t\t"<<funcB<<"\t\t"<<funcNextValue<<"\t\t"<<error<<endl;
+		cout<<a<<"\t\t"<<b<<"\t\t"<<nextValue<<"\t\t"<<funcNextValue<<"\t\t"<<error<<endl;
 		if (error<= EPSILON||retAbsVal(funcNextValue)<= EPSILON)
 		{
 			cout << "----------------------------------------------------------------------------------" << endl;
@@ -65,7 +65,7 @@ int main()
 {
 	double firstValue = -2;	 // Initial first values assumed
 	double secondValue = -1; // Initial second values assumed
-	cout<<"firstValue\t"<<"secondValue\t"<<"nextValue\t"<<"F(a)\t\t"<<"F(B)\t\t"<<"F(C)\t\t"<<"Error\t"<<endl;
+	cout<<"firstValue\t"<<"secondValue\t"<<"nextValue\t"<<"F(C)\t\t"<<"Error\t"<<endl;
 	falsePosition(firstValue, secondValue);
 	return 0;
 }

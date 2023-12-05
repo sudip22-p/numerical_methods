@@ -63,9 +63,9 @@ void bisection(double a, double b)
 // main program to test above method
 int main()
 {
-	double firstValue = -2;	 // Initial first values assumed
-	double secondValue = -1; // Initial second values assumed
-	cout<<"firstValue\t"<<"secondValue\t"<<"nextValue\t"<<"F(a)\t\t"<<"F(B)\t\t"<<"F(C)\t\t"<<"Error\t"<<endl;
+	double firstValue = -1;	 // Initial first values assumed
+	double secondValue = -2; // Initial second values assumed
+	cout<<"firstValue\tsecondValue\tnextValue\tF(a)\t\tF(B)\t\tF(C)\t\tError\t"<<endl;
 	bisection(firstValue, secondValue);
 	return 0;
 }
